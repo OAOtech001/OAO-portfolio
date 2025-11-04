@@ -1,0 +1,132 @@
+:root{
+    --bg-start:#041028;
+    --bg-end:#072a3a;
+    --text:#e6f2fa;
+    --muted:#9fb4c9;
+    --card:rgba(255,255,255,0.03);
+    --accent:#06b6d4;
+    --confetti-colors: #ff6b6b, #ffd166, #6bffb3, #6bd3ff, #c28cff;
+  }
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .container{
+    width:100%;
+    max-width:520px;
+    background:var(--card);
+    border-radius:12px;
+    padding:20px;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    text-align:center;
+    position:relative; /* needed for confetti */
+    overflow:visible;
+  }
+  h3{margin:0 0 12px}
+  .game-buttons{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  button.choice{
+    border:0;
+    padding:12px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    color:var(--text);
+    font-weight:700;
+    min-width:110px;
+    transition:transform .12s ease, box-shadow .12s ease;
+    box-shadow: 0 4px 12px rgba(2,6,23,0.35);
+  }
+  button.choice:hover{ transform: translateY(-4px); }
+  button.rock{ background: linear-gradient(180deg,#374151,#111827); }
+  button.paper{ background: linear-gradient(180deg,#065f46,#064e3b); }
+  button.scissors{ background: linear-gradient(180deg,#7c3aed,#5b21b6); }
+  .result{
+    border-radius:8px;
+    padding:12px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    min-height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+  .result.win {
+    transform: scale(1.06);
+    box-shadow: 0 10px 40px rgba(6,182,212,0.18), 0 0 30px rgba(6,182,212,0.08) inset;
+  }
+
+  /* lose state: red glow + shake */
+  .result.lose {
+    border-color: rgba(255,80,80,0.14);
+    box-shadow: 0 10px 30px rgba(255,80,80,0.10) inset;
+    animation: shake .72s;
+  }
+  @keyframes shake {
+    10%, 90% { transform: translateX(-2px); }
+    20%, 80% { transform: translateX(4px); }
+    30%, 50%, 70% { transform: translateX(-6px); }
+    40%, 60% { transform: translateX(6px); }
+  }
+
+  .small{ color:var(--muted); font-size:0.9rem; margin-top:8px; }
+
+  /* confetti pieces */
+  .confetti {
+    position:absolute;
+    left:0; right:0; top:0; bottom:0;
+    pointer-events:none;
+    overflow:visible;
+  }
+  .confetti-piece{
+    position:absolute;
+    width:10px;
+    height:14px;
+    opacity:0.95;
+    transform-origin:center;
+    will-change: transform, opacity;
+    border-radius:2px;
+    animation: confetti-fall linear forwards;
+  }
+  @keyframes confetti-fall {
+    0%   { transform: translateY(0) rotate(0deg) scale(1); opacity:1; }
+    60%  { opacity:1; }
+    100% { transform: translateY(260px) rotate(720deg) scale(0.9); opacity:0; }
+  }
+
+  /* lose "smoke" / drops */
+  .smoke-piece {
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    opacity:0.9;
+    background: #6b7280; /* slate gray */
+    transform-origin:center;
+    will-change: transform, opacity;
+    animation: smoke-fall linear forwards;
+    mix-blend-mode: multiply;
+  }
+  @keyframes smoke-fall {
+    0%   { transform: translateY(-6px) scale(1); opacity:0.9; }
+    40%  { opacity:0.8; transform: translateY(40px) scale(1.1); }
+    100% { transform: translateY(220px) scale(1.4); opacity:0; }
+  }
+
+  @media (max-width:420px) {
+  button.choice{ min-width:88px; padding:10px 12px; 
+  }
+}
