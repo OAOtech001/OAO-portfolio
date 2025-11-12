@@ -182,7 +182,7 @@ li{
     display: inline-block;
     color: transparent;
     -webkit-text-stroke: .7px red;
-    animation: textfade 16s linear infinite;
+    animation: textfade 12s linear infinite;
     animation-delay: calc(-4s * var(--i));
 }
 
