@@ -415,25 +415,32 @@ li{
     margin: 0 auto;
     font-size: 15px;
 }
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.service-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 22px;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 300px;
+    grid-template-columns: repeat(3, 1fr);
     max-width: 1100px;
     margin: 0 auto;
 }
 .service-card {
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.04);
-    padding: 20px;
+    padding: 5px 0px 10px 10px;
     border-radius: 12px;
-    text-align: center;
+    text-align: start;
     transition: transform .25s ease, box-shadow .25s ease;
     min-height: 220px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 .service-card:hover {
     transform: translateY(-10px);
