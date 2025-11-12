@@ -177,13 +177,13 @@ li{
         transition: margin-top 0.4s;
     }
 }
-.home-info span {
+.home-info h3 span {
     position: relative;
     display: inline-block;
     color: transparent;
     -webkit-text-stroke: .7px red;
-    animation: textfade 12s linear infinite;
-    animation-delay: calc(-4s * var(--i));
+    animation: textfade 9s linear infinite;
+    animation-delay: calc(-3s * var(--i));
 }
 
  @keyframes textfade{
@@ -197,8 +197,8 @@ li{
     overflow: hidden;
     white-space: nowrap;
     border-right: .2px solid red;
-    animation: fill-text 4s linear infinite;
-    animation-delay: calc(-4s * var(--i));
+    animation: fill-text 3s linear infinite;
+    animation-delay: calc(-3s * var(--i));
 }
 @keyframes fill-text {
     0%,100% {
